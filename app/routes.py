@@ -2,6 +2,7 @@ import os
 from sys import exit
 from hashlib import pbkdf2_hmac
 from base64 import b64encode
+from app import app
 import hmac
 from urllib.parse import urlparse, ParseResult
 import string
@@ -11,7 +12,7 @@ from flask import Flask, render_template, request, redirect, session, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////home/abiram/code/terriblink/terriblink.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////var/www/terriblink.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 SECRET_KEY = os.getenv('SECRET_KEY') 
 ADMIN_PASSWD = os.getenv('ADMIN_PASSWD') 
@@ -123,6 +124,3 @@ def catch_all(path):
         return redirect(result.dest)
     else:
         return "Invalid link", 404
-
-if __name__ == '__main__':
-    app.run(port=1337)
