@@ -8,10 +8,9 @@ from urllib.parse import urlparse, ParseResult
 import string
 import re
 import validators
-from flask import Flask, render_template, request, redirect, session, url_for
+from flask import render_template, request, redirect, session, url_for
 from flask_sqlalchemy import SQLAlchemy
 
-app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////var/www/terriblink.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 SECRET_KEY = os.getenv('SECRET_KEY') 
@@ -26,11 +25,11 @@ db = SQLAlchemy(app)
 
 RESERVED = ['admin', 'add', 'delete']
 
-def hash(passwd):
+def hash_passwd(passwd):
     return b64encode(pbkdf2_hmac('sha256', passwd.encode(), b'', 32768)).decode()
 
 def check_passwd(passwd):
-    return hmac.compare_digest(ADMIN_PASSWD, hash(passwd))
+    return hmac.compare_digest(ADMIN_PASSWD, hash_passwd(passwd))
 
 class Shortlink(db.Model):
     link = db.Column(db.String(30), primary_key=True)
