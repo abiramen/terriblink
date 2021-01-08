@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/static/terriblink.css">
+</head>
+<body>
+    <div class="container">
+        {% if message != ''%}
+        <div class="alert alert-primary"> {{ message }} </div>
+        {% endif %}
+        <h1>Terriblink!</h1>
+        <form action="/admin" method="post">
+            <button type="submit">Logout</button>
+        </form>
+        <table>
+            <tr>
+                <th>Shortlink</th>
+                <th>Path</th>
+                <th>Actions</th>
+            </tr>
+            {% for link in shortlinks %}
+            <tr>
+                <td>/{{ link.link }}</td>
+                <td><a href="{{ link.dest }}">{{ link.dest }}</a></td>
+                <td><a href="/delete/{{ link.link }}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <div class="uncenter">
+            <h4>Note: Link names must</h4>
+            <ul>
+                <li>Be between 1 and 20 characters.</li>
+                <li>Use only letters, numbers and hyphens.</li>
+                <li>Not already be in use.</li>
+            </ul>
+        </div>
+        
+
+        <form action="/add" method="post" class="uncenter">
+            <label for="link">Link name (eg. caesartext): </label>
+            <input type="text" name="link" id="link" pattern="[A-Za-z0-9-]{1,30}"><br>
+            <label for="dest">Destination</label>
+            <input type="url" name="dest" id="dest" maxlength="1000"><br>
+            <button type="submit">Add shortlink</button>
+        </form>
+    </div>
+</body>
+</html>

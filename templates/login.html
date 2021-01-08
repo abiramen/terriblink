@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/static/terriblink.css">
+</head>
+<body>
+    <div class="container">
+        {% if message != '' %}
+            <div class="alert alert-danger"> {{ message }} </div>
+        {% endif %}
+        <h1>Welcome to Terriblink!</h1>
+
+        <form action="/admin" method="post">
+            <label for="password">Password: </label>
+            <input type="password" name="password" id="password"><br>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,117 @@
+@import url("https://www.abiram.me/assets/fonts/fonts.css");
+
+html, body {
+    background: #151515;
+    color: #fbfbfb;
+    font-family: 'Metropolis', sans-serif;
+    padding: 30px 0;
+    text-align: center;
+}
+
+h1 {
+    font-weight: bolder;
+}
+
+.container {
+    width: 95%;
+    max-width: 1348px;
+    margin: 0 auto;
+}
+
+.uncenter {
+    text-align: left;
+}
+
+/* yoinked from bootstrap */
+
+.alert {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+
+.alert-primary {
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+form {
+    font-size: 20px;
+    padding: 10px 0;
+}
+
+input {
+    margin: 3px 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    overflow: visible;
+}
+
+label {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+kbd {
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 1em;
+    padding: 0.2rem 0.4rem;
+    font-size: 87.5%;
+    color: #fff;
+    background-color: #212529;
+    border-radius: 0.2rem;
+}
+
+button {
+    border-radius: 5px;
+    margin: 15px 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    overflow: visible;
+    text-transform: none;
+    -webkit-appearance: button;
+    background-color: #363d42 !important;
+    color: white;
+    border: none;
+    padding: 10px;
+}
+
+a:visited {
+    color: #ff2391;
+}
+
+button:not(:disabled) {
+    cursor: pointer;
+}
+
+button:focus, button:hover {
+    background-color: #1d2124 !important;
+}
+
+button:focus {
+    outline: 1px dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+  
+table th,
+table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
